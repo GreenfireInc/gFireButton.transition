@@ -1,12 +1,6 @@
 import React from 'react'
 import {
   Box,
-  Container,
-  Stack,
-  Text,
-  Link,
-  Image,
-  useColorModeValue,
   Flex,
   Button,
   Divider,
@@ -15,8 +9,6 @@ import {
 } from '@chakra-ui/react'
 import { FaGithub, FaTwitter, FaEnvelope } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
-import Beacon from '../../logos/beacon-logo.svg'
-import AirGap from '../../logos/airgap-logo.svg'
 
 interface SocialLinkProps {
   icon: IconType
@@ -43,8 +35,6 @@ const SocialLink: React.FC<SocialLinkProps> = ({ icon: Icon, href, label }) => {
 
 const Footer: React.FC = () => {
   const { colorMode } = useColorMode()
-  const bg = useColorModeValue('gray.100', 'gray.100')
-  const color = useColorModeValue('black', 'gray.800')
 
   return (
     <Box as="footer" py={4} px={8} bg={colorMode === 'light' ? 'gray.50' : 'gray.900'}>
