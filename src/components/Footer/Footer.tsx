@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
           <VStack align="start" spacing={3}>
             <Text fontSize="lg" fontWeight="semibold">About gFireButton</Text>
             <Text fontSize="sm" color="gray.500">
-              A decentralized platform for managing and automating your crypto transactions.
+            A continuation of the social experiment on the Tezos blockchain based on TZButton.
             </Text>
           </VStack>
         </GridItem>
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
               <Link href="/blog" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
                 Blog
               </Link>
-              <Link href="https://github.com/yourusername" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+              <Link href="https://github.com/GreenfireInc" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
                 GitHub
               </Link>
               <Link href="https://twitter.com/yourusername" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
@@ -186,9 +186,6 @@ const Footer: React.FC = () => {
             variant="ghost"
           />
         </HStack>
-        <Box fontSize="sm" color="gray.500">
-          © {new Date().getFullYear()} Your Company. All rights reserved.
-        </Box>
       </Flex>
     </Box>
   )
