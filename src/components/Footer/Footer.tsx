@@ -5,9 +5,15 @@ import {
   Button,
   Divider,
   HStack,
+  VStack,
+  Text,
   useColorMode,
+  Grid,
+  GridItem,
+  Link,
+  IconButton,
 } from '@chakra-ui/react'
-import { FaGithub, FaTwitter, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaTwitter, FaEnvelope, FaLinkedin, FaMedium } from 'react-icons/fa'
 import type { IconType } from 'react-icons'
 
 interface SocialLinkProps {
@@ -37,29 +43,149 @@ const Footer: React.FC = () => {
   const { colorMode } = useColorMode()
 
   return (
-    <Box as="footer" py={4} px={8} bg={colorMode === 'light' ? 'gray.50' : 'gray.900'}>
-      <Divider mb={4} />
-      <Flex justify="space-between" align="center" wrap="wrap">
-        <HStack spacing={4}>
-          <SocialLink
-            icon={FaGithub}
+    <Box 
+      as="footer" 
+      py={8} 
+      px={8} 
+      bg={colorMode === 'light' ? 'gray.50' : 'gray.900'}
+      borderTop="1px"
+      borderColor={colorMode === 'light' ? 'gray.200' : 'gray.700'}
+    >
+      <Grid
+        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(5, 1fr)' }}
+        gap={8}
+        maxW="container.xl"
+        mx="auto"
+      >
+        {/* About Section */}
+        <GridItem>
+          <VStack align="start" spacing={3}>
+            <Text fontSize="lg" fontWeight="semibold">About gFireButton</Text>
+            <Text fontSize="sm" color="gray.500">
+            A continuation of the social experiment on the Tezos blockchain based on TZButton.
+            </Text>
+          </VStack>
+        </GridItem>
+
+        {/* Resources Section */}
+        <GridItem>
+          <VStack align="start" spacing={3}>
+            <Text fontSize="lg" fontWeight="semibold">Resources</Text>
+            <VStack align="start" spacing={2}>
+              <Link href="/docs" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                Documentation
+              </Link>
+              <Link href="/faq" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                FAQ
+              </Link>
+              <Link href="/api" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                API
+              </Link>
+            </VStack>
+          </VStack>
+        </GridItem>
+
+        {/* Community Section */}
+        <GridItem>
+          <VStack align="start" spacing={3}>
+            <Text fontSize="lg" fontWeight="semibold">Community</Text>
+            <VStack align="start" spacing={2}>
+              <Link href="/blog" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                Blog
+              </Link>
+              <Link href="https://github.com/GreenfireInc" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                GitHub
+              </Link>
+              <Link href="https://twitter.com/yourusername" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                Twitter
+              </Link>
+            </VStack>
+          </VStack>
+        </GridItem>
+
+        {/* Legal Section */}
+        <GridItem>
+          <VStack align="start" spacing={3}>
+            <Text fontSize="lg" fontWeight="semibold">Legal</Text>
+            <VStack align="start" spacing={2}>
+              <Link href="/privacy" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                Privacy Policy
+              </Link>
+              <Link href="/terms" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                Terms of Service
+              </Link>
+            </VStack>
+          </VStack>
+        </GridItem>
+
+        {/* Contact Section */}
+        <GridItem>
+          <VStack align="start" spacing={3}>
+            <Text fontSize="lg" fontWeight="semibold">Contact</Text>
+            <VStack align="start" spacing={2}>
+              <Link href="mailto:your.email@example.com" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                Email Us
+              </Link>
+              <Link href="https://linkedin.com/company/yourcompany" fontSize="sm" color="gray.500" _hover={{ color: 'blue.500' }}>
+                LinkedIn
+              </Link>
+            </VStack>
+          </VStack>
+        </GridItem>
+      </Grid>
+
+      <Divider my={8} />
+
+      {/* Bottom Section */}
+      <Flex 
+        direction={{ base: 'column', md: 'row' }}
+        justify="space-between"
+        align="center"
+        maxW="container.xl"
+        mx="auto"
+      >
+        <Text fontSize="sm" color="gray.500">
+          © {new Date().getFullYear()} gFireButton. All rights reserved.
+        </Text>
+
+        <HStack spacing={4} mt={{ base: 4, md: 0 }}>
+          <IconButton
+            as="a"
             href="https://github.com/yourusername"
-            label="GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            icon={<FaGithub />}
+            variant="ghost"
           />
-          <SocialLink
-            icon={FaTwitter}
+          <IconButton
+            as="a"
             href="https://twitter.com/yourusername"
-            label="Twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+            icon={<FaTwitter />}
+            variant="ghost"
           />
-          <SocialLink
-            icon={FaEnvelope}
-            href="mailto:your.email@example.com"
-            label="Contact"
+          <IconButton
+            as="a"
+            href="https://linkedin.com/company/yourcompany"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            icon={<FaLinkedin />}
+            variant="ghost"
+          />
+          <IconButton
+            as="a"
+            href="https://medium.com/@yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Medium"
+            icon={<FaMedium />}
+            variant="ghost"
           />
         </HStack>
-        <Box fontSize="sm" color="gray.500">
-          © {new Date().getFullYear()} Your Company. All rights reserved.
-        </Box>
       </Flex>
     </Box>
   )

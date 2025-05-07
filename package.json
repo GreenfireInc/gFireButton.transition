@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://tzbutton.io",
+  "type": "module",
   "dependencies": {
     "@airgap/beacon-sdk": "^4.5.1",
     "@chakra-ui/react": "^2.8.2",
@@ -25,17 +26,15 @@
     "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
-    "react-scripts": "5.0.1",
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "actions:deploy": "gh-pages -d build -u \"github-actions-bot <support+actions@github.com>\"",
+    "deploy": "gh-pages -d dist",
+    "actions:deploy": "gh-pages -d dist -u \"github-actions-bot <support+actions@github.com>\"",
     "prettier": "prettier --write 'src/**/*' 'public/**/*' 'README.md'"
   },
   "eslintConfig": {
@@ -54,12 +53,13 @@
     ]
   },
   "devDependencies": {
-    "@craco/craco": "^7.1.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.1",
     "prettier": "^3.2.5",
     "process": "^0.11.10",
-    "stream-browserify": "^3.0.0"
+    "stream-browserify": "^3.0.0",
+    "vite": "^5.1.3"
   },
   "prettier": {
     "semi": false,
